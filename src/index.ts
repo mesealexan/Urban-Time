@@ -5,6 +5,16 @@ const thumbMatTelone = document.getElementById("mat-telone")
 const optionContainerMetallico = document.getElementById("option-container-metallico")
 const optionContainerTelone = document.getElementById("option-container-telone")
 
+const ligthSlider = document.getElementById("day-night-slider")
+ligthSlider.addEventListener("change", function () {
+    //@ts-ignore
+    console.log(this.value)
+    // let val = this.value
+        //@ts-ignore
+    FIGARO_API.updateVariable("prelata", this.value)
+})
+
+
 
 let isMenuMetallicoOpened = false
 let isMenuTeloneOpened = false
@@ -53,7 +63,7 @@ const thumbMatMetallico = document.getElementById("thumb-mat-metallico")
 const thumbImgMatTelone = document.getElementById("thumb-mat-telone")
 
 FIGARO_API.View.Materials.getMaterialOptions$("Bars").pipe(filter((response: any) => !!response.length), debounceTime(100), take(1)).subscribe((res: any) => {
-   console.log(res)
+    console.log(res)
     const parent = document.getElementById("option-container-metallico")
     //@ts-ignore
     thumbMatMetallico.src = res[0].presentation.thumbnail.downloadUrl
@@ -80,6 +90,7 @@ FIGARO_API.View.Materials.getMaterialOptions$("Bars").pipe(filter((response: any
 
         parent.append(thumbOption)
     }
+    document.getElementById("mat-metalico").style.display = "block"
 })
 
 FIGARO_API.View.Materials.getMaterialOptions$("Prelata").pipe(filter((response: any) => !!response.length), debounceTime(100), take(1)).subscribe((res: any) => {
@@ -109,6 +120,7 @@ FIGARO_API.View.Materials.getMaterialOptions$("Prelata").pipe(filter((response: 
 
         parent.append(thumbOption)
     }
+    document.getElementById("mat-telone").style.display = "block"
 })
 
 // let lastBlatLength = 120

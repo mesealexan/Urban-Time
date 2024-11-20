@@ -30,11 +30,16 @@ body {
 #day-night-text {
   position: absolute;
   z-index: 2;
-  bottom: 100px;
+  bottom: 70px;
   position: absolute;
-  width: 100%;
+  width: 30%;
   text-align: center;
   font-size: 20px;
+  left: 35%;
+  background-color: white;
+  height: 60px;
+  padding-top: 7px;
+  border-radius: 8px;
 }
 
 #menu-container {
@@ -55,7 +60,7 @@ body {
 
 .thumb-container {
   width: 120px;
-  height: 160px;
+  height: 180px;
   border-radius: 8px;
   border: solid #000 1px;
   background-color: white;
@@ -68,14 +73,14 @@ body {
   left: 4px;
   position: relative;
   top: 4px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px;
 }
 
 .thumb-container-text {
   position: relative;
   left: 8px;
   width: calc(100% - 16px);
+  top: 10px;
 }
 
 .option-container {
@@ -95,22 +100,27 @@ body {
 }
 
 .thumb-option {
-  width: 90px;
-  height: 120px;
+  width: 100px;
+  height: 130px;
   cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .thumb-option-image {
   width: 90px;
   height: 90px;
   position: relative;
-  border-radius: 8px;
+  border-radius: 5px;
+  left: 5px;
+  top: 5px;
 }
 
 .thumb-option-text {
   width: 100%;
   position: relative;
   text-align: center;
+  top: 7px;
 }
 
 
