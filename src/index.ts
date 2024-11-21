@@ -4,28 +4,38 @@ const thumbMatMetalico = document.getElementById("mat-metalico")
 const thumbMatTelone = document.getElementById("mat-telone")
 const optionContainerMetallico = document.getElementById("option-container-metallico")
 const optionContainerTelone = document.getElementById("option-container-telone")
-
+const container = document.getElementById("webGL")
 const ligthSlider = document.getElementById("day-night-slider")
-ligthSlider.addEventListener("change", function () {
+ligthSlider.addEventListener("input", function () {
     //@ts-ignore
     console.log(this.value)
     // let val = this.value
         //@ts-ignore
     FIGARO_API.updateVariable("prelata", this.value)
 })
+const minLeft = "-120%"
+container.addEventListener("click", () => {
 
-
+    if (isMenuTeloneOpened) {
+        optionContainerTelone.style.left = minLeft
+        isMenuTeloneOpened = !isMenuTeloneOpened
+    }
+    if (isMenuMetallicoOpened) {
+        optionContainerMetallico.style.left = minLeft
+        isMenuMetallicoOpened = !isMenuMetallicoOpened
+    } 
+})
 
 let isMenuMetallicoOpened = false
 let isMenuTeloneOpened = false
 thumbMatMetalico.addEventListener("click", () => {
 
     if (isMenuTeloneOpened) {
-        optionContainerTelone.style.left = "-100%"
+        optionContainerTelone.style.left = minLeft
         isMenuTeloneOpened = !isMenuTeloneOpened
     }
     if (isMenuMetallicoOpened) {
-        optionContainerMetallico.style.left = "-100%"
+        optionContainerMetallico.style.left = minLeft
         isMenuMetallicoOpened = !isMenuMetallicoOpened
     } else {
         optionContainerMetallico.style.left = "0%"
@@ -36,11 +46,11 @@ thumbMatMetalico.addEventListener("click", () => {
 thumbMatTelone.addEventListener("click", () => {
 
     if (isMenuMetallicoOpened) {
-        optionContainerMetallico.style.left = "-100%"
+        optionContainerMetallico.style.left = minLeft
         isMenuMetallicoOpened = !isMenuMetallicoOpened
     }
     if (isMenuTeloneOpened) {
-        optionContainerTelone.style.left = "-100%"
+        optionContainerTelone.style.left = minLeft
         isMenuTeloneOpened = !isMenuTeloneOpened
     } else {
         optionContainerTelone.style.left = "0%"
